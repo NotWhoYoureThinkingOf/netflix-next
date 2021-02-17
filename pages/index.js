@@ -9,6 +9,7 @@ import { selectMovies } from "../lib/slices/moviesSlice";
 import { useRouter } from "next/router";
 import ReactPlayer from "react-player";
 import movieTrailer from "movie-trailer";
+import axios from "axios";
 import { selectModal, closeModal } from "../lib/slices/modalSlice";
 
 Modal.setAppElement("#__next");
@@ -47,6 +48,7 @@ const IndexPage = ({
   const [romanceTV, setRomanceTV] = useState(null);
   const [documentariesTV, setDocumentariesTV] = useState(null);
   const [trailerUrl, setTrailerUrl] = useState(null);
+  const [tvUrl, setTvUrl] = useState(null);
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -103,8 +105,15 @@ const IndexPage = ({
   };
 
   const afterOpenModalTV = async () => {
+    const API_KEY = "a956bb8834c71afd94ab3be946b32462";
     const tvId = router.query.moviePage;
-    const trailer = await fetch(``);
+    const trailer = await axios(
+      `https://api.themoviedb.org/3/tv/${tvId}?api_key=${API_KEY}&append_to_response=videos`
+    );
+
+    setTvUrl(trailer.data.videos.results[0].key);
+
+    console.log(trailer.data.videos.results[0].key);
   };
 
   const exitModal = () => {
@@ -142,7 +151,7 @@ const IndexPage = ({
       )}
       <Modal
         isOpen={modalOpen ? router.query.moviePage : false}
-        onAfterOpen={afterOpenModal}
+        onAfterOpen={movieState ? afterOpenModal : afterOpenModalTV}
         onRequestClose={() => exitModal()}
         style={{
           overlay: {
@@ -171,13 +180,23 @@ const IndexPage = ({
           Close Modal
         </div>
         <div style={{ height: "100%", width: "100%" }}>
-          <ReactPlayer
-            controls
-            style={{ background: "black" }}
-            url={`https://www.youtube.com/watch?v=${trailerUrl}`}
-            width="100%"
-            height="100%"
-          />
+          {movieState ? (
+            <ReactPlayer
+              controls
+              style={{ background: "black" }}
+              url={`https://www.youtube.com/watch?v=${trailerUrl}`}
+              width="100%"
+              height="100%"
+            />
+          ) : (
+            <ReactPlayer
+              controls
+              style={{ background: "black" }}
+              url={`https://www.youtube.com/watch?v=${tvUrl}`}
+              width="100%"
+              height="100%"
+            />
+          )}
         </div>
       </Modal>
     </div>
