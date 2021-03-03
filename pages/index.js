@@ -4,6 +4,8 @@ import Banner from "../components/Banner";
 import Row from "../components/Row";
 import { selectMovies } from "../lib/slices/moviesSlice";
 import Nav from "../components/Nav";
+import { selectUser } from "../lib/slices/userSlice";
+import { useRouter } from "next/router";
 
 const IndexPage = ({
   movies,
@@ -24,10 +26,18 @@ const IndexPage = ({
 }) => {
   const [movie, setMovie] = useState(null);
   const movieState = useSelector(selectMovies);
+  const user = useSelector(selectUser);
+  const router = useRouter();
 
   useEffect(() => {
     const randomMovie = Math.floor(Math.random() * movies.length - 1);
     setMovie(movies[randomMovie]);
+  }, []);
+
+  useEffect(() => {
+    if (!user) {
+      router.push("/loginScreen");
+    }
   }, []);
 
   return (
