@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Head from "next/head";
 import styles from "../styles/Layout.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { login, logout } from "../lib/slices/userSlice";
@@ -28,6 +29,10 @@ const Layout = ({ children }) => {
 
   return (
     <>
+      <Head>
+        <title>Nextflix</title>
+        <link rel="icon" href="/netflix-icon.png" />
+      </Head>
       <div className={styles.container}>
         <main className={styles.main}>{children}</main>
       </div>
