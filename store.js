@@ -7,6 +7,9 @@ import textReducer from "./lib/slices/textSlice";
 import moviesReducer from "./lib/slices/moviesSlice";
 import watchReducer from "./lib/slices/watchSlice";
 import modalReducer from "./lib/slices/modalSlice";
+import userReducer from "./lib/slices/userSlice";
+import inputReducer from "./lib/slices/inputSlice";
+import roleReducer from "./lib/slices/roleSlice";
 
 export default configureStore({
   reducer: {
@@ -17,6 +20,9 @@ export default configureStore({
     movies: moviesReducer,
     watch: watchReducer,
     modal: modalReducer,
+    user: userReducer,
+    input: inputReducer,
+    role: roleReducer,
   },
   devTools: true,
 });

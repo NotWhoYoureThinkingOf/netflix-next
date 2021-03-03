@@ -38,5 +38,25 @@
 }
 
 .row__trailer{
-  /* position:absolute; */
+  position: fixed;
+  z-index: 999;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.9);
+}
+
+.row__closeTrailer{
+  position:absolute;
+  top:0;
+  right:0;
+  margin: 50px 100px;
+}
+
+.row__closeTrailer .MuiSvgIcon-root{
+  font-size:3rem;
+  cursor:pointer;
 }

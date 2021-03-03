@@ -3,7 +3,7 @@ import Row from "./Row";
 
 const Rows = ({ movies }) => {
   return (
-    <div>
+    <div className="rows__section">
       <h1>This is the Rows section</h1>
       <Row />
       <Row />
