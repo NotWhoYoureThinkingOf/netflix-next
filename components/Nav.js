@@ -8,14 +8,18 @@ import {
   selectMovies,
 } from "../lib/slices/moviesSlice";
 import styles from "../styles/Nav.module.css";
+import firebase from "../services/firebase";
 import { selectUser } from "../lib/slices/userSlice";
+import { selectRole } from "../lib/slices/roleSlice";
 
 const Nav = () => {
   const [show, handleShow] = useState(false);
   const movieState = useSelector(selectMovies);
   const dispatch = useDispatch();
   const router = useRouter();
+  const db = firebase.firestore();
   const user = useSelector(selectUser);
+  const role = useSelector(selectRole);
 
   const transitionNavBar = () => {
     if (window.scrollY > 50) {
@@ -24,6 +28,8 @@ const Nav = () => {
       handleShow(false);
     }
   };
+
+  console.log("role", role);
 
   useEffect(() => {
     window.addEventListener("scroll", transitionNavBar);
@@ -36,7 +42,9 @@ const Nav = () => {
         <div className={styles.nav__left}>
           <img
             onClick={
-              !user ? () => router.push("/loginScreen") : () => router.push("/")
+              role === null
+                ? () => router.push("/loginScreen")
+                : () => router.push("/")
             }
             className={styles.nav__logo}
             src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png"
