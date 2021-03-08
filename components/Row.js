@@ -77,13 +77,17 @@ const Row = ({ title, fetchUrl, isLargeRow = false }) => {
           >
             <Close style={{ fontSize: "5rem", cursor: "pointer" }} />
           </div>
-          <ReactPlayer
-            url={`https://www.youtube.com/watch?v=${trailerUrl}`}
-            controls
-            width="1440px"
-            height="900px"
-            autoplay
-          />
+          <div className={styles.row__playerWrapper}>
+            <ReactPlayer
+              url={`https://www.youtube.com/watch?v=${trailerUrl}`}
+              controls
+              // width="1440px"
+              // height="900px"
+              width="100%"
+              height="100%"
+              autoplay
+            />
+          </div>
         </div>
       )}
 
@@ -98,8 +102,10 @@ const Row = ({ title, fetchUrl, isLargeRow = false }) => {
           <ReactPlayer
             url={`https://www.youtube.com/watch?v=${tvUrl}`}
             controls
-            width="1440px"
-            height="900px"
+            // width="1440px"
+            // height="900px"
+            width="100%"
+            height="100%"
             autoplay
           />
         </div>
