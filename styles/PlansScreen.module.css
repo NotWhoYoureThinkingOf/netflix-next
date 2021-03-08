@@ -24,3 +24,28 @@
 .plansScreen__planDisabled button{
   background-color: gray !important;
 }
+
+@media screen and (max-width:450px){
+  .plansScreen{
+    margin: 5px 0;
+  }
+
+  .plansScreen__plan{
+    display:flex;
+    justify-content: space-between;
+    padding:10px 5px;
+    opacity:0.8;
+    transition: all 0.1s ease;
+  }
+
+  .plansScreen__plan button{
+    padding:10px 15px;
+    font-size:.85rem;
+    color:white;
+    background-color: #e50914;
+    font-weight:600;
+    border:none;
+    outline:none;
+    cursor:pointer;
+  }
+}

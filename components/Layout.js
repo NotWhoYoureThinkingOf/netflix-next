@@ -30,7 +30,10 @@ const Layout = ({ children }) => {
   return (
     <>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="viewport"
+          content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi"
+        />
         <meta charSet="utf-8" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/netflix-icon.png" key="ogimage" />

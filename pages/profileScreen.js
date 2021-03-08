@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUser, logout } from "../lib/slices/userSlice";
@@ -46,43 +47,48 @@ const ProfileScreen = () => {
 
   return (
     // add button that says something like go to movies/shows
-    <div className={styles.profileScreen}>
-      <Nav />
-      <div className={styles.profileScreen__body}>
-        <h1>Edit Profile</h1>
-        <div className={styles.profileScreen__info}>
-          <img
-            className={styles.profileScreen__infoImage}
-            src="https://pbs.twimg.com/profile_images/1240119990411550720/hBEe3tdn_400x400.png"
-            alt=""
-          />
-          <div className={styles.profileScreen__details}>
-            <h2>{user?.email}</h2>
-            <div className={styles.profileScreen__plans}>
-              <h3>
-                Plans{" "}
-                <span className="current__plan">(Current Plan: {role})</span>
-              </h3>
-              {/* <PlansScreen /> */}
-              <PlansScreen />
-              <button
-                disabled={role === null}
-                onClick={() => role && router.push("/")}
-                className={styles.profileScreen__goToMovies}
-              >
-                {role ? "Go To The Movies Page" : "Pick A Subscription"}
-              </button>
-              <button
-                onClick={signOut}
-                className={styles.profileScreen__signOut}
-              >
-                Sign Out
-              </button>
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      <div className={styles.profileScreen}>
+        <Nav />
+        <div className={styles.profileScreen__body}>
+          <h1>Edit Profile</h1>
+          <div className={styles.profileScreen__info}>
+            <img
+              className={styles.profileScreen__infoImage}
+              src="https://pbs.twimg.com/profile_images/1240119990411550720/hBEe3tdn_400x400.png"
+              alt=""
+            />
+            <div className={styles.profileScreen__details}>
+              <h2>{user?.email}</h2>
+              <div className={styles.profileScreen__plans}>
+                <h3>
+                  Plans{" "}
+                  <span className="current__plan">(Current Plan: {role})</span>
+                </h3>
+                {/* <PlansScreen /> */}
+                <PlansScreen />
+                <button
+                  disabled={role === null}
+                  onClick={() => role && router.push("/")}
+                  className={styles.profileScreen__goToMovies}
+                >
+                  {role ? "Go To The Movies Page" : "Pick A Subscription"}
+                </button>
+                <button
+                  onClick={signOut}
+                  className={styles.profileScreen__signOut}
+                >
+                  Sign Out
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

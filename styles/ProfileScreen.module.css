@@ -26,12 +26,14 @@
 
 .profileScreen__infoImage{
   height:100px;
+  border-radius:10%;
 }
 
 .profileScreen__details{
   color:white;
   margin-left:25px;
   flex:1;
+  /* border-radius:10%; */
 }
 
 .profileScreen__details h2{
@@ -71,6 +73,78 @@
   font-weight: 600;
   border:none;
   cursor:pointer;
+}
+
+@media screen and (max-width:450px){
+  .profileScreen__body{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    height:100%;
+    margin: 0 auto;
+    background:#111;
+    /* padding-top: 4%; */
+  }
+
+  .profileScreen__info{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .profileScreen__infoImage{
+    height:80px;
+    width:80px;
+    margin:0 auto;
+    margin-bottom:20px;
+  }
+
+  .profileScreen__details{
+    color:white;
+    margin-left:0px;
+    flex:1;
+  }
+
+  .profileScreen__details h2{
+    background-color:gray;
+    padding:10px;
+    font-size: .85rem;
+    padding-left:20px;
+  }
+
+  .profileScreen__body h1{
+    font-size:2rem;
+    width:fit-content;
+  }
+
+  .profileScreen__plans{
+    margin-top:15px;
+    font-size:.85rem;
+  }
+
+  .profileScreen__goToMovies{
+    padding:10px 15px;
+    font-size:.85rem;
+    margin-top:5%;
+    width:100%;
+    color:white;
+    background-color: #e50914;
+    font-weight: 600;
+    border:none;
+    cursor:pointer;
+  }
+  
+  .profileScreen__signOut{
+    padding:10px 20px;
+    font-size:.85rem;
+    margin-top:5%;
+    width:100%;
+    color:white;
+    background-color: #e50914;
+    font-weight: 600;
+    border:none;
+    cursor:pointer;
+  }
 }
 
 

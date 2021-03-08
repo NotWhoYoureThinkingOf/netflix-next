@@ -89,3 +89,67 @@
   border:none;
   cursor:pointer;
 }
+
+@media screen and (max-width:450px){
+  .loginScreen{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .loginScreen__background{
+    backdrop-filter: brightness(70%);
+  }
+
+  .loginScreen__button{
+    display:none;
+  }
+  
+  .loginScreen__logo{
+    position: fixed;
+    left: 0;
+    height: 60px;
+    width: 100%;
+    -webkit-object-fit: contain;
+    object-fit: contain;
+    cursor: pointer;
+    background: #111;
+    padding-left: 0px;
+  }
+
+  .loginScreen__body{
+    top:auto;
+    margin: 0 auto;
+    text-align:center;
+    z-index:1;
+    color:white;
+    padding:20px;
+    width:100%;
+  }
+
+  .loginScreen__body h1{
+    font-size:1.9rem;
+    text-shadow:2px 2px 5px rgba(0,0,0,.5);
+  }
+  
+  .loginScreen__body h2{
+    font-size:1.2rem;
+    text-shadow:2px 2px 5px rgba(0,0,0,.5);
+  }
+  
+  .loginScreen__body h3{
+    font-size:1rem;
+    text-shadow:2px 2px 5px rgba(0,0,0,.5);
+  }
+
+  .loginScreen__input form input{
+    display:none;
+  }
+
+  .loginScreen__getStarted{
+    padding:12px 20px;
+    font-size:.85rem;
+    border-radius:5px;
+    margin-top:10px;
+  }
+}
