@@ -45,6 +45,7 @@ const ProfileScreen = () => {
   }, [user]);
 
   return (
+    // add button that says something like go to movies/shows
     <div className={styles.profileScreen}>
       <Nav />
       <div className={styles.profileScreen__body}>
@@ -64,6 +65,13 @@ const ProfileScreen = () => {
               </h3>
               {/* <PlansScreen /> */}
               <PlansScreen />
+              <button
+                disabled={role === null}
+                onClick={() => role && router.push("/")}
+                className={styles.profileScreen__goToMovies}
+              >
+                {role ? "Go To The Movies Page" : "Pick A Subscription"}
+              </button>
               <button
                 onClick={signOut}
                 className={styles.profileScreen__signOut}

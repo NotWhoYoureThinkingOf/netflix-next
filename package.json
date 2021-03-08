@@ -15,7 +15,7 @@
     "axios": "^0.21.1",
     "firebase": "^8.2.7",
     "firebase-admin": "^9.5.0",
-    "movie-trailer": "^2.1.0",
+    "movie-trailer": "^2.0.5",
     "next": "latest",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

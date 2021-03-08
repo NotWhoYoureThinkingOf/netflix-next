@@ -49,6 +49,18 @@
   text-transform: capitalize;
 }
 
+.profileScreen__goToMovies{
+  padding:10px 20px;
+  font-size:1rem;
+  margin-top:5%;
+  width:100%;
+  color:white;
+  background-color: #e50914;
+  font-weight: 600;
+  border:none;
+  cursor:pointer;
+}
+
 .profileScreen__signOut{
   padding:10px 20px;
   font-size:1rem;
